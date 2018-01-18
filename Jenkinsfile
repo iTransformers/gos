@@ -8,7 +8,7 @@ node {
     }
 
    stage('Build'){
-	sh "sudo scripts/system/build-image.sh ./image-build-env"
+	sh "sudo su && export PATH=$PATH:/sbin && scripts/system/build-image.sh ./image-build-env"
    }
 
 

@@ -8,7 +8,7 @@ node {
     }
 
    stage('Build'){
-	sh "scripts/system/build-image.sh ./image-build-env"
+	sh "sudo scripts/system/build-image.sh ./image-build-env"
    }
 
 

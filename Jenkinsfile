@@ -4,11 +4,11 @@ node {
 
     }
     stage('Prepare'){
-	sh "mkdir -p $(pwd)/image-build-env"
+	sh "mkdir -p /tmp/image-build-env"
     }
 
    stage('Build'){
-	sh "sudo su && export PATH=$PATH:/sbin && scripts/system/build-image.sh $(pwd)/image-build-env"
+	sh "sudo su && export PATH=$PATH:/sbin && scripts/system/build-image.sh /tmp/image-build-env"
    }
 
 

@@ -1,0 +1,17 @@
+[Unit]
+Description=Setup a secure tunnel to %I
+After=network-online.target
+
+[Service]
+EnvironmentFile=/etc/default/ssh-tunnel@%i
+
+#ExecStart=/usr/lib/itransformers/ssh-tunnel.sh
+ExecStart=/usr/bin/ssh -NT -o ServerAliveInterval=60 -o ExitOnForwardFailure=yes -R ${REMOTE_ADDRESS}:${REMOTE_PORT}:${LOCAL_ADDRESS}:${LOCAL_PORT} ${USER}@${TARGET} -i ${KEY_PATH} -p ${TARGET_PORT} 
+
+ExecStartPost=/bin/bash /usr/lib/itransformers/ssh-tunnel.sh ssh-tunnel@%i
+# Restart every >2 seconds to avoid StartLimitInterval failure
+RestartSec=5
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

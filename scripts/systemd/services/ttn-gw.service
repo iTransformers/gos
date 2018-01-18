@@ -1,0 +1,13 @@
+[Unit]
+Description=Started RPI gateway service
+After=network-online.target
+
+[Service]
+EnvironmentFile=/etc/default/gwenv
+Type=oneshot
+ExecStart=/usr/lib/itransformers/rpi-ttn-gw.sh
+RemainAfterExit=yes
+
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,10 @@
+TARGET=nbu1.itransformers.net
+TARGET_PORT=22423
+LOCAL_ADDRESS=localhost
+LOCAL_PORT=22
+REMOTE_PORT=0
+REMOTE_ADDRESS=nbu1.itransformers.net
+KEY_PATH=/root/.ssh/ttn-rpi
+USER=root
+
+#{REMOTE_ADDRESS}:${REMOTE_PORT}:${LOCAL_ADDRESS}:${LOCAL_PORT} ${TARGET}

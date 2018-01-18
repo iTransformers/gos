@@ -3,9 +3,12 @@ node {
         checkout scm
 
     }
-
+    stage('Prepare'){
+	sh "mkdir -p ./image-build-env"
+    }
 
    stage('Build'){
+	sh "scripts/system/build-image.sh ./image-build-env"
    }
 
 

@@ -1,0 +1,9 @@
+
+RPI_TTN_DOCKER_IMAGE="itransformers/rpi-ttn-gateway:latest"
+LATITUDE="42.70471808";
+LONGITUDE="23.44110334";
+ALTITUDE="660";
+EMAIL="info@itransformers.net";
+REGION="EU";
+LOG="/var/log/itransformers.log";
+LOG="/var/log/itransformers.log";

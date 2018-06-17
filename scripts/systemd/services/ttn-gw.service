@@ -3,7 +3,7 @@ Description=Started RPI gateway service
 After=network-online.target
 
 [Service]
-EnvironmentFile=/etc/default/gwenv
+EnvironmentFile=/etc/default/environment
 Type=oneshot
 ExecStart=/usr/lib/itransformers/rpi-ttn-gw.sh
 RemainAfterExit=yes

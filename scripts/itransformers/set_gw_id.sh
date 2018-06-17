@@ -34,7 +34,7 @@ if [ ! -f /etc/hostname ]; then
     echo $GW_ID > /etc/hostname
     /bin/hostname -F /etc/hostname
     add $GW_ID 127.0.1.1
-elif ["$GW_ID" != `cat /etc/hostname`]; then
+elif [ "$GW_ID" != `cat /etc/hostname` ]; then
     echo $GW_ID > /etc/hostname
     /bin/hostname -F /etc/hostname
     add $GW_ID 127.0.1.1

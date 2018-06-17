@@ -7,7 +7,7 @@ DefaultDependencies=false
 
 [Service]
 Type=oneshot
-ExecStart=/bin/bash -c "/usr/lib/itransformers/firstboot.sh"
+ExecStart=/bin/bash -c "/usr/lib/itransformers/set_gw_id.sh"
 RemainAfterExit=yes
 
 [Install]

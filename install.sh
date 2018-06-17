@@ -16,8 +16,10 @@ sudo chmod 600 /root/.ssh/ttn-rpi
 
 sudo systemctl enable ssh-tunnel@nbu1
 sudo systemctl enable ttn-gw
+sudo systemctl enable first-boot
 sudo systemctl daemon-reload
 
+sudo systemctl start first-boot
 sudo systemctl start ssh-tunnel@nbu1
 sudo systemctl start ttn-gw
 

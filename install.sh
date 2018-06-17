@@ -8,7 +8,9 @@ sudo cp -f scripts/systemd/services/* /lib/systemd/system
 
 sudo /usr/lib/itransformers/set_gw_id.sh
 
+if [ ! systemctl is-active --quiet docker ]; then
 sudo curl -sSL https://get.docker.com | sh
+fi
 
 sudo usermod -aG docker pi
 sudo cp -f ttn-rpi /root/.ssh/ttn-rpi

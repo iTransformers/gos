@@ -3,6 +3,7 @@
 envFile=/etc/environment
 GW_ID=$(cat /sys/class/net/eth0/address | awk -F\: '{print $1$2$3"fffe"$4$5$6}') || true
 sed -i '/GW_ID/d' $envFile
+echo "Setting GW_ID to: $GW_ID"
 echo "GW_ID=$GW_ID" >> $envFile
 
 

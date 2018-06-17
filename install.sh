@@ -8,12 +8,7 @@ sudo cp -f scripts/systemd/services/* /lib/systemd/system
 
 sudo /usr/lib/itransformers/set_gw_id.sh
 
-if ! systemctl is-active --quiet docker; then  sudo curl -sSL https://get.docker.com| sh;  fi
-
-sudo usermod -aG docker pi
-sudo cp -f ttn-rpi /root/.ssh/ttn-rpi
-sudo chmod 600 /root/.ssh/ttn-rpi
-
+if ! systemctl is-active --quiet docker; then  sudo curl -sSL https://get.docker.com| sh; sudo usermod -aG docker pi; fi
 sudo systemctl enable ssh-tunnel@nbu1
 sudo systemctl enable ttn-gw
 sudo systemctl enable first-boot

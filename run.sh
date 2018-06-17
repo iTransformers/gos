@@ -36,10 +36,13 @@ ssh-copy-id -p $SSH_PORT $SSH_USER@$SSH_HOST
 if [ -z $7 ]; then
  ssh -p $SSH_PORT $SSH_USER@$SSH_HOST 'sudo apt-get update -y && sudo apt-get install git'
 fi
-ssh -p $SSH_PORT $SSH_USER@$SSH_HOST 'if [ -r ~/gos ]; then rm -r -f -- gos_bak; echo "GOS exists moving it to gos_bak";  mv gos gos_bak; fi'
+ssh -p $SSH_PORT $SSH_USER@$SSH_HOST 'if [ -r ~/gos ]; then echo "GOS exists"; cd gos;git pull ; else  git clone https://github.com/iTransformers/gos; fi'
+
+scp -P $SSH_PORT ttn-rpi $SSH_USER@$SSH_HOST /tmp/ttn-rpi
+ssh -p $SSH_PORT $SSH_USER@$SSH_HOST sudo mv /tmp/ttn-rpi /root/.ssh/ttn-rpi
+ssh -p $SSH_PORT $SSH_USER@$SSH_HOST sudo chmod 600 /root/.ssh/ttn-rpi
 
 
-ssh -p $SSH_PORT $SSH_USER@$SSH_HOST 'git clone https://github.com/iTransformers/gos'
 
 scp -P $SSH_PORT env $SSH_USER@$SSH_HOST:gos/env
 
